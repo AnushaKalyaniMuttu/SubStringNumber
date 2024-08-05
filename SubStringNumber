@@ -1,0 +1,21 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Main {
+    public static void main(String[] args) {
+        String[] strings = {"abc123def", "456gh789", "noNumberHere", "12and34"};
+
+        for (String str : strings) {
+            if (containsNumberSubstring(str)) {
+                System.out.println("String with number substring: " + str);
+            }
+        }
+    }
+
+    private static boolean containsNumberSubstring(String str) {
+        // Regular expression to match numbers
+        Pattern pattern = Pattern.compile("\\d+");
+        Matcher matcher = pattern.matcher(str);
+        return matcher.find(); // Returns true if a number substring is found
+    }
+}
